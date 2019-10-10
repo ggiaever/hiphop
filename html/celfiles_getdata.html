@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: celfiles_getdata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for celfiles_getdata {hiphop}"><tr><td>celfiles_getdata {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>celfiles_getdata</h2>
+
+<h3>Description</h3>
+
+<p>Import .CEL files
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+celfiles_getdata(celfiles_dir = NULL, cfv = NULL,
+  gene_info = hiphop_gene_info, tag4_probe_info = hiphop_tag4_probe_info)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>celfiles_dir</code></td>
+<td>
+<p>Path to the directory with .CEL files to process</p>
+</td></tr>
+<tr valign="top"><td><code>cfv</code></td>
+<td>
+<p>vector with .CEL file names (give basename with or without .CEL extension)</p>
+</td></tr>
+<tr valign="top"><td><code>gene_info</code></td>
+<td>
+<p>Default data.frame hiphop_gene_info included with the package</p>
+</td></tr>
+<tr valign="top"><td><code>tag4_probe_info</code></td>
+<td>
+<p>data.frame hiphop_tag4_probe_info included with the package</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function processes raw .CEL files, breaks down data by probesets, uptags and downtags and adds gene information from YeastMine
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with objects named: all, all_standard, files + columns with short .CEL file names (4 last characters)
+</p>
+
+
+<h3>all</h3>
+
+<p>All data 318 x 318 = 101124 rows + Intensities from all arrays + annotation
+</p>
+
+
+<h3>all_standard</h3>
+
+<p>Subset of all containing the standard set of ORF (with bad tags excluded)
+</p>
+
+
+<h3>files</h3>
+
+<p>A table with the original .CEL filenames and the short name used in the output tables
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

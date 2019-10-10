@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_db_table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_db_table {hiphop}"><tr><td>get_db_table {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_db_table</h2>
+
+<h3>Description</h3>
+
+<p>get_db_table
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_db_table(dbcon, tblname, download.all = F, download.limit = 10000)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dbcon</code></td>
+<td>
+<p>The database connection, e.g: 
+</p>
+<pre>
+ ytdb_name = "yeast_track"
+ yt_host = "yeast-track.pharmacy.ubc.ca"
+ ytdb = connect_annotator(dbname = ytdb_name, host = yt_host)
+
+ ycsdb_name = "ycs"
+ ycs_host = "cn-websrv4.pharmacy.ubc.ca"
+ ycs_db = connect_annotator(dbname = ycsdb_name, host = ycs_host)
+ dbcon = ycs_db
+ 
+</pre></td></tr>
+<tr valign="top"><td><code>tblname</code></td>
+<td>
+<p>A table name for a given database can be obtained with function: get_tables_info_from_database 
+for example &quot;analysis_info&quot; is a table of the &quot;yeast_track&quot; database</p>
+</td></tr>
+<tr valign="top"><td><code>download.all</code></td>
+<td>
+<p>Do you want to download all the data for the given table?, then set download.all = T,
+however, the number of rows may be very large and this will cause trouble, so the default is set to F,
+and a download.limit is set to a default of 10000 rows.
+If the table contains less than this limit, it will download all.
+You can set the download.limit value (see below)</p>
+</td></tr>
+<tr valign="top"><td><code>download.limit</code></td>
+<td>
+<p>Default is 10000, however you can change it to another value greater than zero</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If download.all is set to T or download.all is set to F and there is a numeric value for download.limit greater than zero
+a table with all the data is obtained.
+</p>
+<p>Important: If download.all is set to F and download.limit is set to NULL
+You get a table connection object that can be manipulated with dplyr functions
+</p>
+<p>Example: Lets get AVG_G data for a given plate
+</p>
+<pre>
+platename ="14_07_15_OHC_Media_Replicates_Plate1_20150714_ps1_A_48_T_9.txt"
+eod = get_plate_od(plate_name_in = platename)
+# Plate Name is:  14_07_15_OHC_Media_Replicates_Plate1_20150714_ps1_A_48_T_9.txt 
+# Plate Number is:  30285 
+
+ytdb_name = "yeast_track"
+yt_host = "yeast-track.pharmacy.ubc.ca"
+ytdb = connect_annotator(dbname = ytdb_name, host = yt_host)
+
+# # get table names and their column names from database connection
+ ytdb_tables_info = get_tables_info_from_database(ytdb, with_colnames = T)
+
+# names(ytdb_tables_info) : shows table: "analysis_info"
+ ytdb_tables_info[["analysis_info"]] shows there is a column "Avg_G"
+
+z = get_db_table(dbcon = ytdb,tblname = "analysis_info", download.all = F, download.limit = NULL)
+
+library(dplyr)
+avg_g = z 
+# 48 x 4 table
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

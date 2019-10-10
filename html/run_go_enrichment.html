@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Function to run GO enrichment analysis with web output of MCL...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for run_go_enrichment {hiphop}"><tr><td>run_go_enrichment {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Function to run GO enrichment analysis with web output of MCL clustered nodes</h2>
+
+<h3>Description</h3>
+
+<p>The GO and Yeast Database information used here corresponds to September 03, 2016
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+run_go_enrichment(fdrThresh = 0.1, curr_exp, score)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fdrThresh:</code></td>
+<td>
+<p>A threshhold for the FDR value (default 0.1)</p>
+</td></tr>
+<tr valign="top"><td><code>curr_exp:</code></td>
+<td>
+<p>A name you give as a prefix for your output xgmml file</p>
+</td></tr>
+<tr valign="top"><td><code>score:</code></td>
+<td>
+<p>the input data.frame. This data.frame should contain three columns named index, score and gene
+</p>
+<p>index: Is a binary 0/1 representation of what is included as your selected group of genes(1) and what is not (0), all data provided will conform the universe
+</p>
+<p>score: Typically is a log2Ratio
+</p>
+<p>gene: gene names updated</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with three elements:
+</p>
+<p>enrichMat_Ordered: A data.frame with results of the enrichment analysis ordered by increasing FDR (false discovery rate) and decreasing foldEnrichment
+</p>
+<p>url_link: the link for visualization ( a pop-up window will also show a new tab at that url_link)
+</p>
+<p>mcl_output: A list with four elements: xgmml, xgmml_file relate to the XML encoding and mcl.in and mcl.out are the input network and output clustered network from MCL
+</p>
+<pre>
+   Example (run this): Note, the object scoreMat_example is automatically available 
+   
+           myrun = run_go_enrichment(fdrThresh = 0.1, curr_exp = 'hiphop', score = scoreMat_example)
+           
+           You also will get the url printed on the screen and a pop-up window will open 
+           (if it fails, your browser may ask you to trust the url and will give you a hint for how to accomplish that)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

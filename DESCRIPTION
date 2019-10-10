@@ -1,0 +1,17 @@
+Package: hiphop
+Title: hiphop
+Version: 0.0.2
+Created: Mon Dec 7 09:05:10 2015
+Author: Mauricio Neira
+Description: A package with facilities for the analysis of hiphop data
+Maintainer: Mauricio Neira <maunei001@gmail.com>
+License: LGPL
+biocViews: AnnotationData, AffymetrixChip, cdf, hiphop,
+        Saccharomyces_Cerevisiae
+Depends: utils
+Imports: AnnotationDbi, affyio, affy, tidyr, dplyr, XML
+LazyData: yes
+RoxygenNote: 5.0.1
+NeedsCompilation: no
+Packaged: 2016-09-24 01:25:47 UTC; mneira
+Built: R 3.2.3; ; 2016-09-24 01:30:06 UTC; unix

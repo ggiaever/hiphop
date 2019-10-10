@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_tables_info_from_database</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_tables_info_from_database {hiphop}"><tr><td>get_tables_info_from_database {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_tables_info_from_database</h2>
+
+<h3>Description</h3>
+
+<p>Given a database connection, extracts all the table names and optionally
+get the column names for each table when using parameter 'with_colnames = T' (default)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_tables_info_from_database(dbcon, with_colnames = T)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dbcon</code></td>
+<td>
+<p>The database connection, e.g: 
+</p>
+<pre>
+ ytdb_name = "yeast_track"
+ yt_host = "yeast-track.pharmacy.ubc.ca"
+ ytdb = connect_annotator(dbname = ytdb_name, host = yt_host)
+
+ ycsdb_name = "ycs"
+ ycs_host = "cn-websrv4.pharmacy.ubc.ca"
+ ycs_db = connect_annotator(dbname = ycsdb_name, host = ycs_host)
+ dbcon = ycs_db
+ 
+</pre></td></tr>
+<tr valign="top"><td><code>with_colnames</code></td>
+<td>
+<p>If set to TRUE, extracts column names for each table</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector with all table names for the given database, if parameter 'with_colnames = F'
+</p>
+<p>A named list where each element is a table and contains a vector of column names
+To get just the table names use function names() on the output
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

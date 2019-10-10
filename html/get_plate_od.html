@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_plate_od</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_plate_od {hiphop}"><tr><td>get_plate_od {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_plate_od</h2>
+
+<h3>Description</h3>
+
+<p>Gets OD data for a given plate from yeast_track database
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_plate_od(plate_number_in = NULL, plate_name_in = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>plate_number_in</code></td>
+<td>
+<p>The plate number from Yeast Grower, e.g 30285</p>
+</td></tr>
+<tr valign="top"><td><code>plate_name_in</code></td>
+<td>
+<p>The plate name (filename downloaded from Michael's Yeast Grower Desktop Application) 
+</p>
+<pre>
+Here is an example: You can get the same data by using plate number or plate name
+&gt; myod1 = get_plate_od(plate_number_in = 30285)
+&gt; myod2 = get_plate_od(plate_name_in = "14_07_15_OHC_Media_Replicates_Plate1_20150714_ps1_A_48_T_9.txt")
+&gt; all.equal(myod1,myod2) 
+[1] TRUE
+
+
+</pre></td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with the following columns:
+</p>
+<p>well: the well number in Yeast Grower plate
+</p>
+<p>sec: time in seconds
+</p>
+<p>od600: optical density at 600 nm (background corrected)
+</p>
+<p>plate_id: the plate number
+</p>
+<p>well_alias: well coordinate in Yeast Grower plate
+</p>
+<p>UserPlateCoord: the coordinates in the user's experimental plate
+Note: works for 48 well plates ...pending to add when using 96-well plates (in such a case the UserPlateCoord column just shows NAs)
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

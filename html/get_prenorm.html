@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_prenorm</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_prenorm {hiphop}"><tr><td>get_prenorm {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_prenorm</h2>
+
+<h3>Description</h3>
+
+<p>Gets prenorm data from a set of .CEL files (using external PERL code).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_prenorm(celfiles_dir = NULL, cfv = NULL, getmask = FALSE,
+  scriptsdir = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>celfiles_dir</code></td>
+<td>
+<p>Path to the directory with .CEL files to process</p>
+</td></tr>
+<tr valign="top"><td><code>cfv</code></td>
+<td>
+<p>vector with .CEL file names (give basename with or without .CEL extension)</p>
+</td></tr>
+<tr valign="top"><td><code>getmask</code></td>
+<td>
+<p>boolean parameter default FALSE, if set to TRUE the output changes from a data.frame with the .prenorm data to a list with two elements: prenorm and mask.
+</p>
+<p>prenorm contains the data.frame with the prenorm data
+</p>
+<p>mask is a list with elements being data.frames with mask data for each of the .CEL files.
+</p>
+<p>To retrieve the information you can follow:
+</p>
+<pre>
+cfv = c("@51133100740803060516423465736227","@51133100740803060516423465735925")
+y = get_prenorm(cfv = cfv, getmask = T)
+names(y)  # prenorm mask
+y$prenorm # data.frame with prenorm data
+y$mask[,"@51133100740803060516423465736227"]# data.frame with mask data for that chip</pre></td></tr>
+<tr valign="top"><td><code>scriptsdir</code></td>
+<td>
+<p>Path for the PERL code needed</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If getmask = FALSE, returns a data.frame
+</p>
+<p>If getmask = TRUE, returns a list with two elements:
+</p>
+<p>prenorm: a data.frame
+</p>
+<p>mask: a list with data.frames for each .CEL file used in the input.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

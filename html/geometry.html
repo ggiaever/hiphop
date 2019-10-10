@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Convert (x,y)-coordinates to single-number indices and back.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for i2xy {hiphop}"><tr><td>i2xy {hiphop}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Convert (x,y)-coordinates to single-number indices and back.</h2>
+
+<h3>Description</h3>
+
+<p>Convert (x,y)-coordinates on the chip (and in the CEL file) to the
+single-number indices used in AffyBatch and CDF environment, and back.</p>
+
+
+<h3>Usage</h3>
+
+<pre>i2xy(i)
+xy2i(x,y)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>numeric. x-coordinate (from 1 to 318)</p>
+</td></tr>
+<tr valign="top"><td><code>y</code></td>
+<td>
+<p>numeric. y-coordinate (from 1 to 318)</p>
+</td></tr>
+<tr valign="top"><td><code>i</code></td>
+<td>
+<p>numeric. single-number index (from 1 to 101124)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Type <code>i2xy</code> and <code>xy2i</code> at the <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> prompt to 
+view the function definitions.</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="hiphop.html">hiphop</a></code></p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  xy2i(5,5)
+  i     = 1:(318*318)
+  coord = i2xy(i)
+  j     = xy2i(coord[, "x"], coord[, "y"])
+  stopifnot(all(i==j))
+  range(coord[, "x"])
+  range(coord[, "y"])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hiphop</em> version 0.0.2 <a href="00Index.html">Index</a>]</div>
+</body></html>
